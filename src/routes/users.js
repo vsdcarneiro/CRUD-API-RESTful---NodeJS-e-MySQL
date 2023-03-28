@@ -56,16 +56,12 @@ router.put("/users/:id", async (req, res) => {
     const { body } = req;
     let attributes = {};
 
-    if (!body.firstName) {
+    if (body.firstName === "") {
       return res.send("Attribute firstName is required!");
-    } else {
-      attributes.firstName = body.firstName;
     }
 
-    if (!body.email) {
+    if (body.email === "") {
       return res.send("Attribute email is required!");
-    } else {
-      attributes.email = body.email;
     }
 
     attributes = { ...body, ...attributes };
